@@ -1,0 +1,20 @@
+with open('challenge_input.txt', 'r') as file:
+    contents=file.read().split('\n')[:-1]
+
+_count=[]
+
+for i in contents:
+    to_parse=i.split()
+    numbers=to_parse[0].split('-')
+    letter=to_parse[1].replace(':','')
+    password=to_parse[2]
+    
+    number_of_times=password.count(letter)
+    print(numbers, number_of_times, letter, password)
+    if number_of_times<=int(numbers[1]):
+        print('pog 1')
+        if number_of_times>=int(numbers[0]):
+            print(f'pog 2. Found a valid password {password}')
+            _count.append(password)
+
+print(f"{len(_count)} are the number of passwords that are valid.")
